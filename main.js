@@ -13,9 +13,9 @@ let submitBtn = document.getElementById("submit-btn")
 
 signUpPortal.addEventListener('submit', function (value) {
     value.preventDefault()
+    clearContent()
     checkEmptyInput()
     validateEmail()
-
 
 })
 
@@ -27,7 +27,7 @@ function clearContent() {
 }
 
 function checkEmptyInput() {
-    clearContent()
+
     if (username.value === "") {
         usernameError.textContent = "Username input is empty!!"
 
@@ -38,20 +38,15 @@ function checkEmptyInput() {
         emailError.textContent = "Email input is empty!!"
     }
     if (password.value === "") {
-        console.log("Password reached")
         passwordError.textContent = "Password input is empty!!"
 
     }
 }
 
-// function validateEmail() {
-//     let regExpr = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-//     try {
-//         regExpr.test(email.value)
+function validateEmail() {
+    let regExpr = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-//     } catch (error) {
-
-//         emailError.textContent = "Plz enter a valid email"
-
-//     }
-// }
+    if (!regExpr.test(email.value)) {
+        emailError.textContent = "Enter a valid email format"
+    }
+}
