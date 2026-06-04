@@ -16,9 +16,9 @@ signUpPortal.addEventListener('submit', function (value) {
     clearContent()
     checkEmptyInput()
     validateEmail()
+    validatePassword()
 
 })
-
 
 function clearContent() {
     usernameError.textContent = ""
@@ -30,8 +30,6 @@ function checkEmptyInput() {
 
     if (username.value === "") {
         usernameError.textContent = "Username input is empty!!"
-
-
     }
     if (email.value === "") {
         console.log("Password reached")
@@ -49,4 +47,12 @@ function validateEmail() {
     if (!regExpr.test(email.value)) {
         emailError.textContent = "Enter a valid email format"
     }
+}
+
+
+function validatePassword() {
+    if (password.value.trim().length > 8) {
+        passwordError.textContent = "Enter password with 8-character or less"
+    }
+
 }
