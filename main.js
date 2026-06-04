@@ -12,32 +12,33 @@ let passwordError = document.getElementById("password-error")
 let submitBtn = document.getElementById("submit-btn")
 
 signUpPortal.addEventListener('submit', function (value) {
-    value.preventDefault()
-    clearContent()
-    checkEmptyInput()
-    validateEmail()
-    validatePassword()
+    value.preventDefault();
+
+    clearContent();
+    validateEmail();
+    checkEmptyInput();
+    validatePassword();
+
 
 })
+verificationBtn()
 
 function clearContent() {
-    usernameError.textContent = ""
-    emailError.textContent = ""
-    passwordError.textContent = ""
+    usernameError.textContent = "";
+    emailError.textContent = "";
+    passwordError.textContent = "";
 }
 
 function checkEmptyInput() {
-
     if (username.value === "") {
         usernameError.textContent = "Username input is empty!!"
     }
     if (email.value === "") {
-        console.log("Password reached")
+        console.log("Email reached")
         emailError.textContent = "Email input is empty!!"
     }
     if (password.value === "") {
         passwordError.textContent = "Password input is empty!!"
-
     }
 }
 
@@ -49,10 +50,37 @@ function validateEmail() {
     }
 }
 
-
 function validatePassword() {
     if (password.value.trim().length > 8) {
         passwordError.textContent = "Enter password with 8-character or less"
     }
+
+}
+
+
+
+function verificationBtn() {
+    let btnContainer = document.createElement("div")
+    let resendBtn = document.createElement("button")
+    let countDownSpan = document.createElement("span")
+
+    resendBtn.textContent = "Resend"
+
+    let reset = false;
+
+    resendBtn.addEventListener("click", ((value) => {
+        event.preventDefault()
+        let count;
+        if (reset) {
+            setInterval()
+        }
+
+
+        countDownSpan.textContent = "10"
+    }))
+
+    btnContainer.append(resendBtn, countDownSpan)
+    document.body.appendChild(btnContainer)
+
 
 }
