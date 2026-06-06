@@ -62,6 +62,8 @@ function validatePassword() {
     }
 }
 
+
+
 function verificationBtn() {
     let btnContainer = document.createElement("div")
     let resendBtn = document.createElement("button")
@@ -81,6 +83,7 @@ function verificationBtn() {
 
             if (count <= 0) {
                 clearInterval(timer)
+                count = ""
                 resendBtn.disabled = false;
                 alert("Submition has been resent!")
             }

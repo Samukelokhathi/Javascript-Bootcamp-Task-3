@@ -7,6 +7,17 @@ const studentDatabase = [
 ]
 
 
-function displayStudentRec() {
 
+function demonstrateSyncExecution() {
+    console.log("Step-1 - The function is starting")
+    console.log("Step-2 -  The Process is in action")
+    console.log("Step-3 - The function reached the final stage")
+}
+
+
+demonstrateSyncExecution()
+
+
+function displayStudentRec() {
+    new Promise()
 }
