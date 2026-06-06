@@ -3,10 +3,12 @@ let signUpPortal = document.getElementById("sign-up-portal");
 let username = document.getElementById("username-input")
 let email = document.getElementById("email-input")
 let password = document.getElementById("password-input")
+let termsInput = document.getElementById("terms-input")
 
 let emailError = document.getElementById("email-error")
 let usernameError = document.getElementById("username-error")
 let passwordError = document.getElementById("password-error")
+let termsError = document.getElementById("terms-error")
 
 
 let submitBtn = document.getElementById("submit-btn")
@@ -27,6 +29,7 @@ function clearContent() {
     usernameError.textContent = "";
     emailError.textContent = "";
     passwordError.textContent = "";
+    termsError.textContent = ""
 }
 
 function checkEmptyInput() {
@@ -40,6 +43,11 @@ function checkEmptyInput() {
     if (password.value === "") {
         passwordError.textContent = "Password input is empty!!"
     }
+    if (!termsInput.checked) {
+        termsError.textContent = "Agree with the terms"
+    }
+
+
 }
 
 function validateEmail() {
@@ -55,9 +63,7 @@ function validatePassword() {
         passwordError.textContent = "Enter password with 8-character or less"
     }
 
-}
-
-
+} 4
 
 function verificationBtn() {
     let btnContainer = document.createElement("div")
@@ -70,13 +76,27 @@ function verificationBtn() {
 
     resendBtn.addEventListener("click", ((value) => {
         event.preventDefault()
-        let count;
+        let count = 10
+        countDownSpan.textContent = count
+
+        const interval = setInterval(() => {
+            count--
+
+            if (count <= 0) {
+                clearInterval()
+                count = ""
+
+            }
+
+            countDownSpan.textContent = count
+
+        }, 1000)
+
         if (reset) {
             setInterval()
         }
 
 
-        countDownSpan.textContent = "10"
     }))
 
     btnContainer.append(resendBtn, countDownSpan)
