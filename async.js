@@ -19,5 +19,10 @@ demonstrateSyncExecution()
 
 
 function displayStudentRec() {
-    new Promise()
+    studentDatabase.forEach((result) => {
+        console.log(result)
+    })
 }
+
+
+setTimeout(displayStudentRec, 3000)
