@@ -21,7 +21,6 @@ signUpPortal.addEventListener('submit', function (value) {
     checkEmptyInput();
     validatePassword();
 
-
 })
 verificationBtn()
 
@@ -47,7 +46,6 @@ function checkEmptyInput() {
         termsError.textContent = "Agree with the terms"
     }
 
-
 }
 
 function validateEmail() {
@@ -62,8 +60,7 @@ function validatePassword() {
     if (password.value.trim().length > 8) {
         passwordError.textContent = "Enter password with 8-character or less"
     }
-
-} 4
+}
 
 function verificationBtn() {
     let btnContainer = document.createElement("div")
@@ -71,7 +68,6 @@ function verificationBtn() {
     let countDownSpan = document.createElement("span")
 
     resendBtn.textContent = "Resend"
-
     let reset = false;
 
     resendBtn.addEventListener("click", ((value) => {
@@ -79,24 +75,18 @@ function verificationBtn() {
         let count = 10
         countDownSpan.textContent = count
 
-        const interval = setInterval(() => {
+        const timer = setInterval(() => {
             count--
+            resendBtn.disabled = true
 
             if (count <= 0) {
-                clearInterval()
-                count = ""
-
+                clearInterval(timer)
+                resendBtn.disabled = false
+                alert("Submition has been resent!")
             }
-
             countDownSpan.textContent = count
 
         }, 1000)
-
-        if (reset) {
-            setInterval()
-        }
-
-
     }))
 
     btnContainer.append(resendBtn, countDownSpan)
